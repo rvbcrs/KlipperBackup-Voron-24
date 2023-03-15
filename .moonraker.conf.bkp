@@ -28,7 +28,7 @@ trusted_clients =
 
 [announcements]
 subscriptions = 
-	mainsail
+	octoeverywhere
 
 [update_manager]
 refresh_interval = 168
@@ -39,6 +39,15 @@ type = web
 channel = stable
 repo = mainsail-crew/mainsail
 path = ~/mainsail
+
+[timelapse]
+
+[update_manager timelapse]
+type = git_repo
+primary_branch = main
+path = ~/moonraker-timelapse
+origin = https://github.com/mainsail-crew/moonraker-timelapse.git
+managed_services = klipper moonraker
 
 [update_manager crowsnest]
 type = git_repo
@@ -58,4 +67,15 @@ type = git_repo
 path = ~/klipper-led_effect
 origin = https://github.com/julianschill/klipper-led_effect.git
 is_system_service = False
+
+[update_manager octoeverywhere]
+type = git_repo
+channel = beta
+path = /home/pi/octoeverywhere
+origin = https://github.com/QuinnDamerell/OctoPrint-OctoEverywhere.git
+env = /home/pi/octoeverywhere-env/bin/python
+requirements = requirements.txt
+install_script = install.sh
+managed_services = 
+	octoeverywhere
 
